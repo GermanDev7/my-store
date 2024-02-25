@@ -1,0 +1,92 @@
+1- npm i -y
+2. se inicializa git git init
+3. se crean documentos de buenas practicas como .gitignore eslint.src
+4. se busca en git ignore .io la configuracion correcta correspondiente para el framework y SO que vayamos a usar
+5. configuracion de package
+6. instalar nodemon  con prettier y demas
+7. crear el servidor inicial, seleccionar puerto y crear la ruta base, ver que funcione en el navegador
+8. Routing con express
+9. rutas get
+10. recoger un parametro  req.params  /products/:id
+11. recoger query params query params /products?page=1
+12.  modularizar las rutas, utilizar routing, falta hacer de usuarios y categorias
+13. hacer los post se debe importar el middleware para usar formato json
+14. explicacion del update con put y patch el put es una actualizacion total, se deben enviar todos los campos,
+con el patch es parcial solo se debe enviar la parte que se desea cambiar, es por convencion pero funciona totalmente igual
+
+15. habla sobre la capa de servicios para eso usa un diagrama donde va de afuera hacia adentro
+devices-web-DB----->Controllers---->Casos de uso------>Reglas de negocio
+
+Controllers(Router Middleware)<---> Servicios<------> Libs(Modelos)
+16. Crear servicios de update delete y post
+17. async y await para incluir a la bd
+18. middlewere   req------>middleware------->res, un middleware se puede conectar con mas middlewares
+19. middleware siempre debe ir despues del routing app.use(middleware);
+20. siempre hay que colocar next() si no no va seguir al siguiente middleware
+21. manejo de errores boom, hay que tener en cuenta si es reglas de negocio o no
+22. validacion de datos con joi, validacion de esquemas, (dto-schemas)
+23. para el joi no hacer una validacion 1 a 1 se coloca la opcion schema.validate(data, { abortEarly: false }); y envia todos los errores que sucedan
+
+-----postgres
+
+24. cargar docker
+25. instalar postgres
+26. crear pool de conexiones
+27. crear variables de entorno
+28. instalar npm i dotenv
+29. ORM Sequalize, instalacion y configuracion,
+agnostico no importa con que base de datos este conectado
+30. instalamos el docker para postgres, pgadmin
+31. instalamos el docker para mysql, phpmyadmin
+32. configuramos el .env
+33. para mysql se utilizan las siguientes configuraciones:
+PORT= 3000
+DB_USER='root'
+DB_PASSWORD='admin123'
+DB_HOST='localhost'
+DB_NAME='my_store'
+DB_PORT='3307'
+
+34. ademas de esto se deben realizar cambios en el archivo de sequalize y .env dependiendo el motor de bd que queramos
+se hacen 2 cambios en el dialecto
+
+35. estamos utilizando sync pero este es muy delicado y no se recomienda en produccion por lo cual se van a realizar cambios
+36. se realizan migraciones
+37. las migraciones se hacen a nivel de terminal por lo cual se debe crear la conexion .sequalizerc
+38. creamos las carpetas migrations, seeders y creamos el archivo de configuracion config.js
+39. en el package json se añade el comando:
+"migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:migrate:undo",
+    "migrations:delete": "sequelize-cli db:migrate:undo:all"
+40. para modificar una tabla creamos una migracion y le damos addColumn
+41. Relacion 1:1 HasOne, BelongsTo
+42. Relaciones 1 a muchos hasMany
+43. Muchos a muchos, en este caso con products y order
+44. Paginacion
+////autenticacion y autorizacion
+45. diferencias entre autenticacion y autorizacion
+46. cifrado de contraseñas
+47. implementacion de autenticacion con login---- passport js
+48. implementar jwt con npm i jsonwebtoken
+49. firmar un token y verificar un token
+50. faalta lo de verificar el token
+https://jwt.io/
+https://auth0.com/docs/authenticate/login/configure-silent-authentication
+https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
+
+//generar claves secretas recomentdada de 256
+https://keygen.io/
+51. control de roles
+52. control de roles dinamicos, para tener el acceso a eso debe hacer login antes
+53. para este tema de roles hay una libreria mas especializada llamada access-control
+54: Consideraciones a tener en el client sesion:
+Un estado de login
+Cookies(mejor) o LocalStorage
+Enviar en el Header
+Refresh token
+Validar permisos
+55. enviar correos con nodemailer
+56. hacer una reestructuracion de los servivios se crea auth.service y se limpia el codigo
+57.
+

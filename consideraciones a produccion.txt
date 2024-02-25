@@ -1,0 +1,8 @@
+Evaluar los CORS
+Https -> cifrar la conexion
+Procesos de building, procesos necesarios que no son de la app, 
+remover logs
+Seguridad(Helmet)
+hacer testing
+
+falta despliegue con vercel
