@@ -1,5 +1,4 @@
 const { ValidationError } = require('sequelize');
-const validateHandler = require('./validator.handler');
 
 function logError(error, req, res, next) {
   console.error(error);
